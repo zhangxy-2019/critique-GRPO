@@ -1,7 +1,12 @@
-**Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback**  
+# **Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback**  
 [![Paper](https://img.shields.io/badge/arXiv-2506.03106-b31b1b.svg)](https://www.arxiv.org/abs/2506.03106)
 
+
 ---
+The code is coming soon! Expect a release in 1–2 weeks. Stay tuned!
+
+---
+
 
 ![Overview](figure1.png)
 
@@ -49,10 +54,7 @@ Recent advances in reinforcement learning (RL) with numerical feedback, such as 
 #### Main Results
 ![Main Results](main_results.png)
 
----
-The code is coming soon! Expect a release in 1–2 weeks. Stay tuned!
 
----
 ## Citation
 
 If you find this work useful, please cite:
