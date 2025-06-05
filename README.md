@@ -50,7 +50,9 @@ Recent advances in reinforcement learning (RL) with numerical feedback, such as 
 ![Main Results](main_results.png)
 
 ---
+The code is coming soon! Expect a release in 1–2 weeks. Stay tuned!
 
+---
 ## Citation
 
 If you find this work useful, please cite:
