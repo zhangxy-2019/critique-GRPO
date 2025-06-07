@@ -60,12 +60,9 @@ Recent advances in reinforcement learning (RL) with numerical feedback, such as 
 If you find this work useful, please cite:
 
 ```bibtex
-@misc{zhang2025critiquegrpoadvancingllmreasoning,
-      title={Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback}, 
-      author={Xiaoying Zhang and Hao Sun and Yipeng Zhang and Kaituo Feng and Chaochao Lu and Chao Yang and Helen Meng},
-      year={2025},
-      eprint={2506.03106},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2506.03106}, 
+@article{zhang2025critique,
+  title={Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback},
+  author={Zhang, Xiaoying and Sun, Hao and Zhang, Yipeng and Feng, Kaituo and Yang, Chao and Meng, Helen},
+  journal={arXiv preprint arXiv:2506.03106},
+  year={2025}
 }
