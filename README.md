@@ -25,12 +25,6 @@ Recent advances in reinforcement learning (RL) with numerical feedback, such as 
   - STEM problem-solving
   - General reasoning tasks
 
-- **Better Policy Exploration**: Critique-GRPO surpasses a strong baseline that incorporates expert demonstrations within online RL. Further analysis reveals:
-  - **Higher entropy** does not always guarantee efficient learning from exploration.
-  - **Longer responses** do not necessarily lead to more effective exploration.
-
-- **Critique-Guided Refinements**: RL-finetuned models using Critique-GRPO demonstrate the ability to generate correct refinements for persistently failed problems, leveraging natural language critiques effectively.  
-
 #### Critique-GRPO Framework
 ![Critique-GRPO Framework](Critique_GRPO.png)
 
