@@ -1,9 +1,18 @@
-**Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback**  
+# **Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback**  
 [![Paper](https://img.shields.io/badge/arXiv-2506.03106-b31b1b.svg)](https://www.arxiv.org/abs/2506.03106)
+
+
+---
+The code is coming soon! Expect a release in 1–2 weeks. Stay tuned!
 
 ---
 
+<<<<<<< HEAD
 ![Overview](Introduction.png)
+=======
+
+![Overview](figure1.png)
+>>>>>>> 5a537e838677f6207492eec32cb969fb6072b1cf
 
 ## Overview
 
@@ -29,19 +38,15 @@ Recent advances in reinforcement learning (RL) with numerical feedback, such as 
 
 ![Three Types of Critique](Three_types_of_critique.png)
 
----
 
 ## Citation
 
 If you find this work useful, please cite:
 
 ```bibtex
-@misc{zhang2025critiquegrpoadvancingllmreasoning,
-      title={Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback}, 
-      author={Xiaoying Zhang and Hao Sun and Yipeng Zhang and Kaituo Feng and Chaochao Lu and Chao Yang and Helen Meng},
-      year={2025},
-      eprint={2506.03106},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2506.03106}, 
+@article{zhang2025critique,
+  title={Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback},
+  author={Zhang, Xiaoying and Sun, Hao and Zhang, Yipeng and Feng, Kaituo and Yang, Chao and Meng, Helen},
+  journal={arXiv preprint arXiv:2506.03106},
+  year={2025}
 }
