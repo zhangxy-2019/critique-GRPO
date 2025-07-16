@@ -7,12 +7,10 @@ The code is coming soon! Expect a release in 1–2 weeks. Stay tuned!
 
 ---
 
-<<<<<<< HEAD
 ![Overview](Introduction.png)
 =======
 
 ![Overview](figure1.png)
->>>>>>> 5a537e838677f6207492eec32cb969fb6072b1cf
 
 ## Overview
 
