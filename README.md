@@ -9,8 +9,8 @@
 
 Recent advances in reinforcement learning (RL) with numerical feedback have significantly enhanced the complex reasoning capabilities of large language models (LLMs). However, we identify three critical limitations of pure numerical feedback:
 
-1. **Performance plateaus** in later training stages
-2. **Ineffective self-reflection** mechanisms
+1. **Best performance plateaus** in later training stages
+2. **Limited efficacy of spontaneous self-reflection** mechanisms
 3. **Persistent failures** on challenging problems
 
 Our analysis reveals that RL-finetuned models can generate correct refinements for persistently failed problems when provided with natural language critiques. This insight led to **Critique-GRPO**, an online RL framework that synergistically combines:
@@ -21,9 +21,6 @@ Our analysis reveals that RL-finetuned models can generate correct refinements f
 
 Key innovations include:
 - Simultaneous learning from initial responses and critique-guided refinements
-- A shaping function that:
-  - Amplifies learning from correct (especially unfamiliar) refinements
-  - Penalizes incorrect refinements
 
 ## Key Results
 
