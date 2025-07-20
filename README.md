@@ -1,44 +1,80 @@
 # **Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback**  
-[![Paper](https://img.shields.io/badge/arXiv-2506.03106-b31b1b.svg)](https://www.arxiv.org/abs/2506.03106)
 
+[![Paper](https://img.shields.io/badge/arXiv-2506.03106-b31b1b.svg)](https://arxiv.org/abs/2506.03106)
+[![Model](https://img.shields.io/badge/🤗%20Model-Critique_GRPO_Qwen3--8B-blue)](https://huggingface.co/xyingzhang/critique_grpo_math_4k_qwen3_8b_rollout7_self_critique_1_global_step_300)
 
----
-The code is coming soon! Expect a release in 1–2 weeks. Stay tuned!
-
----
-
-![Overview](Introduction.png)
-=======
-
-![Overview](figure1.png)
+![Method Overview](figure1.png)
 
 ## Overview
 
-Recent advances in reinforcement learning (RL) with numerical feedback, such as scalar rewards, have significantly enhanced the complex reasoning capabilities of large language models (LLMs). Despite this success, we identify three key challenges encountered by RL with solely numerical feedback: performance plateaus, limited effectiveness of spontaneous self-reflection, and persistent failures. We then demonstrate that RL-finetuned models, even after exhibiting performance plateaus, can generate correct refinements on persistently failed problems by leveraging natural language feedback in the form of critiques. Building on this insight, we propose Critique-GRPO, an online RL framework that integrates both natural language and numerical feedback for effective policy optimization. Critique-GRPO enables LLMs to learn from initial responses and critique-guided self-refinements simultaneously while maintaining exploration. Additionally, we employ a shaping function to amplify learning from correct, especially unfamiliar, refinements and penalize incorrect ones. Extensive experiments with Qwen2.5-7B-Base, Qwen2.5-Math-7B-Base, and Qwen3-8B demonstrate that Critique-GRPO consistently outperforms supervised learning and RL-based fine-tuning methods across eight challenging mathematical, STEM, and general reasoning tasks, improving average pass@1 scores by approximately 4.4% and 3.8% on Qwen2.5-7B-Base and Qwen3-8B (w/ thinking), respectively. Notably, Critique-GRPO enables effective self-improvement through self-critiquing and weak-to-strong generalization, achieving consistent gains over GRPO, such as 16.7% and 10.0% pass@1 improvements on AIME 2024.
+Recent advances in reinforcement learning (RL) with numerical feedback have significantly enhanced the complex reasoning capabilities of large language models (LLMs). However, we identify three critical limitations of pure numerical feedback:
 
----
+1. **Performance plateaus** in later training stages
+2. **Ineffective self-reflection** mechanisms
+3. **Persistent failures** on challenging problems
+
+Our analysis reveals that RL-finetuned models can generate correct refinements for persistently failed problems when provided with natural language critiques. This insight led to **Critique-GRPO**, an online RL framework that synergistically combines:
+
+- Natural language feedback (critiques)
+- Numerical rewards
+- Novel exploration mechanisms
+
+Key innovations include:
+- Simultaneous learning from initial responses and critique-guided refinements
+- A shaping function that:
+  - Amplifies learning from correct (especially unfamiliar) refinements
+  - Penalizes incorrect refinements
+
+## Key Results
+
+| Model                | Avg. Pass@1 Improvement |
+|----------------------|-----------------------|
+| Qwen2.5-7B-Base      | +4.4%                |
+| Qwen3-8B (w/ Thinking)| +3.8%               |
+
+**Notable achievements**:
+- 16.7% improvement on AIME 2024 (vs GRPO)
+- 10.0% weak-to-strong generalization gain
+- Effective self-improvement through self-critiquing
+
+## Released Resources
+
+- **Model**: [Qwen3-8B Critique-GRPO](https://huggingface.co/xyingzhang/critique_grpo_math_4k_qwen3_8b_rollout7_self_critique_1_global_step_300)
+  - Fine-tuned with self-critiquing capability
+  - Optimized for mathematical reasoning
+- **Code**: Coming soon! (Stay tuned)
 
 ## Key Contributions
 
-- **Improved Reasoning Performance**: Critique-GRPO consistently outperforms supervised learning-based and RL-based fine-tuning approaches across *eight challenging tasks*, including:
-  - Mathematical reasoning
-  - STEM problem-solving
-  - General reasoning tasks
+1. **Dual-Feedback Optimization**:
+   - First framework to effectively combine natural language critiques with numerical rewards
+   - Addresses the "plateau and forget" problem in RL fine-tuning
 
-#### Critique-GRPO Framework
-![Critique-GRPO Framework](Critique_GRPO.png)
+2. **Consistent Performance Gains**:
+   - Outperforms baselines across 8 challenging benchmarks:
+     - Mathematical reasoning (AIME, MATH)
+     - STEM problem-solving
+     - General reasoning tasks
 
-![Three Types of Critique](Three_types_of_critique.png)
+3. **Practical Advancements**:
+   - Demonstrated weak-to-strong generalization
+   - Scalable self-improvement through self-critiquing
+   - Computationally efficient shaping function
 
+## Methodology
 
-## Citation
+![Pipeline](Introduction.png)
 
-If you find this work useful, please cite:
+Critique-GRPO operates through three phases:
 
-```bibtex
-@article{zhang2025critique,
-  title={Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback},
-  author={Zhang, Xiaoying and Sun, Hao and Zhang, Yipeng and Feng, Kaituo and Yang, Chao and Meng, Helen},
-  journal={arXiv preprint arXiv:2506.03106},
-  year={2025}
-}
+1. **Initial Response Generation**:
+   - Standard reasoning attempt
+   - Receives numerical reward
+
+2. **Critique-Guided Self-Refinement**:
+   - Generates natural language critiques
+   - Produces refined solutions
+   - Receives shaped reward
+
+3. **On-policy Optimization**:
+   - Simultaneous policy updates from both pathways
