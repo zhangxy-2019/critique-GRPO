@@ -77,6 +77,6 @@ Critique-GRPO operates through three phases:
    - Receives shaped reward
 
 3. **On-policy Optimization**:
-   - Simultaneous policy updates from both pathways
+   - Simultaneous policy updates from both initial generations and their refinements
 
 ![Critiques](Three_types_of_critique.png)
