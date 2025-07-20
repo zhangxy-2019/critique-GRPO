@@ -63,7 +63,7 @@ Key innovations include:
 
 ## Methodology
 
-![Pipeline](figure1.png)
+![Method](Critique_GRPO.png)
 
 Critique-GRPO operates through three phases:
 
@@ -78,3 +78,5 @@ Critique-GRPO operates through three phases:
 
 3. **On-policy Optimization**:
    - Simultaneous policy updates from both pathways
+
+![Critiques](Three_types_of_critique.png)
