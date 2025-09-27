@@ -14,8 +14,6 @@ Recent advances in reinforcement learning (RL) with numerical feedback, such as 
 #### Critique-GRPO Framework
 ![Critique-GRPO Framework](Critique_GRPO.png)
 
-![Three Types of Critique](Three_types_of_critique.png)
-
 ---
 
 ## 🔥🔥🔥 Installation & Training (Update the training code)
