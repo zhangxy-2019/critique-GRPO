@@ -5,7 +5,20 @@
 
 ![Method Overview](Introduction.png)
 
-## Installation & Training (Update the training code)
+## Overview
+
+Recent advances in reinforcement learning (RL) with numerical feedback, such as scalar rewards, have significantly enhanced the complex reasoning capabilities of large language model (LLMs). Despite this success, we identify three key challenges encountered by RL with solely numerical feedback: performance plateaus, limited effectiveness of self-reflection, and persistent failures. We then demonstrate that RL-finetuned models, even after exhibiting performance plateaus, can generate correct refinements on persistently failed problems by leveraging natural language feedback in the form of critiques. Building on this insight, we propose Critique-GRPO, an online RL framework that integrates both natural language and numerical feedback for effective policy optimization. Critique-GRPO enables LLMs to learn from initial responses and critique-guided self-refinements simultaneously while maintaining exploration. 
+
+---
+
+#### Critique-GRPO Framework
+![Critique-GRPO Framework](Critique_GRPO.png)
+
+![Three Types of Critique](Three_types_of_critique.png)
+
+---
+
+## 🔥🔥🔥 Installation & Training (Update the training code)
 
 ### Build Training Environment
 
@@ -19,42 +32,6 @@ chmod +x verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_si
 # Execute the training script
 bash verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
 ```
-
-## Overview
-
-Recent advances in reinforcement learning (RL) with numerical feedback, such as scalar rewards, have significantly enhanced the complex reasoning capabilities of large language model (LLMs). Despite this success, we identify three key challenges encountered by RL with solely numerical feedback: performance plateaus, limited effectiveness of self-reflection, and persistent failures. We then demonstrate that RL-finetuned models, even after exhibiting performance plateaus, can generate correct refinements on persistently failed problems by leveraging natural language feedback in the form of critiques. Building on this insight, we propose Critique-GRPO, an online RL framework that integrates both natural language and numerical feedback for effective policy optimization. Critique-GRPO enables LLMs to learn from initial responses and critique-guided self-refinements simultaneously while maintaining exploration. 
-
----
-
-## Key Contributions
-
-1. **Dual-Feedback Optimization**:
-   - First framework to effectively combine natural language critiques with numerical rewards
-   - Addresses the "plateau and forget" problem in RL fine-tuning
-
-2. **Consistent Performance Gains**:
-   - Outperforms baselines across 8 challenging benchmarks:
-     - Mathematical reasoning (AIME, MATH)
-     - STEM problem-solving
-     - General reasoning tasks
-
-- **Better Policy Exploration**: Critique-GRPO surpasses a strong baseline that incorporates expert demonstrations within online RL. Further analysis reveals:
-  - **Higher entropy** does not always guarantee efficient learning from exploration.
-  - **Longer responses** do not necessarily lead to more effective exploration.
-
-- **Critique-Guided Refinements**: RL-finetuned models using Critique-GRPO demonstrate the ability to generate correct refinements for persistently failed problems, leveraging natural language critiques effectively.  
-
-#### Critique-GRPO Framework
-![Critique-GRPO Framework](Critique_GRPO.png)
-
-![Three Types of Critique](Three_types_of_critique.png)
-
-
-## build training environment
-pip install training_env.yml
-## run training scipt
-chmod +x /verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
-bash /verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
 
 ## Citation
 
