@@ -7,42 +7,49 @@
 
 ## Overview
 
-Recent advances in reinforcement learning (RL) with numerical feedback, such as scalar rewards, have significantly enhanced the complex reasoning capabilities of large language model (LLMs). Despite this success, we identify three key challenges encountered by RL with solely numerical feedback: performance plateaus, limited effectiveness of self-reflection, and persistent failures. We then demonstrate that RL-finetuned models, even after exhibiting performance plateaus, can generate correct refinements on persistently failed problems by leveraging natural language feedback in the form of critiques. Building on this insight, we propose Critique-GRPO, an online RL framework that integrates both natural language and numerical feedback for effective policy optimization. Critique-GRPO enables LLMs to learn from initial responses and critique-guided self-refinements simultaneously while maintaining exploration. 
+Recent advances in reinforcement learning (RL) with numerical feedback have significantly enhanced LLM reasoning capabilities. However, we identify three key limitations:
 
----
+1. **Performance plateaus** in later training stages
+2. **Ineffective self-reflection** mechanisms
+3. **Persistent failures** on challenging problems
 
-## Key Contributions
+**Critique-GRPO** is a novel online RL framework that combines:
+- Natural language critiques
+- Numerical rewards
+- Advanced exploration techniques
 
-1. **Dual-Feedback Optimization**:
-   - First framework to effectively combine natural language critiques with numerical rewards
-   - Addresses the "plateau and forget" problem in RL fine-tuning
+**Core innovation**: Critique-GRPO operates through three phases (R1-ZERO Training Paradigm). Simultaneous learning from both initial responses and critique-guided refinements. 
 
-2. **Consistent Performance Gains**:
-   - Outperforms baselines across 8 challenging benchmarks:
-     - Mathematical reasoning (AIME, MATH)
-     - STEM problem-solving
-     - General reasoning tasks
+## Released Resources
 
-- **Better Policy Exploration**: Critique-GRPO surpasses a strong baseline that incorporates expert demonstrations within online RL. Further analysis reveals:
-  - **Higher entropy** does not always guarantee efficient learning from exploration.
-  - **Longer responses** do not necessarily lead to more effective exploration.
+- **Model**: [Qwen3-8B Critique-GRPO](https://huggingface.co/xyingzhang/critique_grpo_math_4k_qwen3_8b_rollout7_self_critique_1_global_step_300)
+  - Fine-tuned with self-critiquing capability
+  - Optimized for mathematical reasoning
+- **Code**: Initial version released, official version pending funding approval (The verl folder used by Critique-GRPO was lost during Git conflict resolution. We are actively reorganizing the codebase and will release an updated version shortly.)
 
-- **Critique-Guided Refinements**: RL-finetuned models using Critique-GRPO demonstrate the ability to generate correct refinements for persistently failed problems, leveraging natural language critiques effectively.  
 
 #### Critique-GRPO Framework
 ![Critique-GRPO Framework](Critique_GRPO.png)
 
 ![Three Types of Critique](Three_types_of_critique.png)
 
+### Quick Start
+```bash
+conda env create -f training_env.yml
+conda activate critique-grpo
+bash verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-critique_text_online.sh
+```
+
+
+## Acknowledgements
+We gratefully acknowledge the open-source community and specifically thank [VERL](https://github.com/volcengine/verl), [LUFFY](https://github.com/ElliottYan/LUFFY).
 
 ## Citation
-
-If you find this work useful, please cite:
-
+If you find our code useful, please cite:
 ```bibtex
 @article{zhang2025critique,
   title={Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback},
-  author={Zhang, Xiaoying and Sun, Hao and Zhang, Yipeng and Feng, Kaituo and Yang, Chao and Meng, Helen},
+  author={Zhang, Xiaoying and Sun, Hao and Zhang, Yipeng and Feng, Kaituo and Lu, Chaochao and Yang, Chao and Meng, Helen},
   journal={arXiv preprint arXiv:2506.03106},
   year={2025}
-}
+}"
