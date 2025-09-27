@@ -5,6 +5,21 @@
 
 ![Method Overview](Introduction.png)
 
+## Installation & Training (Update the training code)
+
+### Build Training Environment
+
+```bash
+# If using conda (recommended):
+conda env create -f training_env.yml
+conda activate critique-grpo
+# Make the script executable
+chmod +x verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
+
+# Execute the training script
+bash verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
+```
+
 ## Overview
 
 Recent advances in reinforcement learning (RL) with numerical feedback, such as scalar rewards, have significantly enhanced the complex reasoning capabilities of large language model (LLMs). Despite this success, we identify three key challenges encountered by RL with solely numerical feedback: performance plateaus, limited effectiveness of self-reflection, and persistent failures. We then demonstrate that RL-finetuned models, even after exhibiting performance plateaus, can generate correct refinements on persistently failed problems by leveraging natural language feedback in the form of critiques. Building on this insight, we propose Critique-GRPO, an online RL framework that integrates both natural language and numerical feedback for effective policy optimization. Critique-GRPO enables LLMs to learn from initial responses and critique-guided self-refinements simultaneously while maintaining exploration. 
@@ -34,6 +49,12 @@ Recent advances in reinforcement learning (RL) with numerical feedback, such as 
 
 ![Three Types of Critique](Three_types_of_critique.png)
 
+
+## build training environment
+pip install training_env.yml
+## run training scipt
+chmod +x /verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
+bash /verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
 
 ## Citation
 
