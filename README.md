@@ -31,6 +31,11 @@ chmod +x verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_si
 bash verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
 ```
 
+## Ackowledgement
+Our work builds upon several excellent open-source projects: VERL (https://github.com/volcengine/verl), LUFFY (https://github.com/ElliottYan/LUFFY).
+We extend our gratitude to the team members and the broader research community for their contributions.
+
+
 ## Citation
 
 If you find this work useful, please cite:
@@ -42,3 +47,4 @@ If you find this work useful, please cite:
   journal={arXiv preprint arXiv:2506.03106},
   year={2025}
 }
+
