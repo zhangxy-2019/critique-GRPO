@@ -14,7 +14,7 @@ wandb online
 
 export RAY_BACKEND_LOG_LEVEL=debug
 export HYDRA_FULL_ERROR=1
-export DATA_DIR=/mnt/workspace/xyzhang/evaluation/batch_eval_results/tokens8192/verl_grpo_openr1_math_4k_qwen3_8b_rollout8_0523/simple_gt_critique_multi_targets
+export DATA_DIR=/mnt/workspace/xyzhang/evaluation/batch_eval_results/tokens8192/verl_grpo_openr1_math_4k_qwen3_8b_rollout8_0523/simple_gt_critique
 export MODEL_PATH=/mnt/workspace/huggingface_models/Qwen3-8B
 export RUN_NAME=critique_grpo_math_4k_qwen3_8b_rollout7_critique_1_simple_gt_online
 export HDFS_CHECKPOINT_PATH=/mnt/workspace/xyzhang/rl_tuned_ckpts/luffy

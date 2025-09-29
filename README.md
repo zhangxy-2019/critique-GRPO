@@ -11,28 +11,29 @@ Recent advances in reinforcement learning (RL) with numerical feedback, such as 
 
 ---
 
-## Key Contributions
-
-1. **Dual-Feedback Optimization**:
-   - First framework to effectively combine natural language critiques with numerical rewards
-   - Addresses the "plateau and forget" problem in RL fine-tuning
-
-2. **Consistent Performance Gains**:
-   - Outperforms baselines across 8 challenging benchmarks:
-     - Mathematical reasoning (AIME, MATH)
-     - STEM problem-solving
-     - General reasoning tasks
-
-- **Better Policy Exploration**: Critique-GRPO surpasses a strong baseline that incorporates expert demonstrations within online RL. Further analysis reveals:
-  - **Higher entropy** does not always guarantee efficient learning from exploration.
-  - **Longer responses** do not necessarily lead to more effective exploration.
-
-- **Critique-Guided Refinements**: RL-finetuned models using Critique-GRPO demonstrate the ability to generate correct refinements for persistently failed problems, leveraging natural language critiques effectively.  
-
 #### Critique-GRPO Framework
 ![Critique-GRPO Framework](Critique_GRPO.png)
 
-![Three Types of Critique](Three_types_of_critique.png)
+---
+
+## 🔥🔥🔥 Installation & Training (Update the training code)
+
+### Build Training Environment
+
+```bash
+# If using conda (recommended):
+conda env create -f training_env.yml
+conda activate critique-grpo
+# Make the script executable
+chmod +x verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
+
+# Execute the training script
+bash verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
+```
+
+## Ackowledgement
+Our code builds upon several excellent open-source projects: VERL (https://github.com/volcengine/verl), LUFFY (https://github.com/ElliottYan/LUFFY).
+We extend our gratitude to the team members and the broader research community for their contributions.
 
 
 ## Citation
@@ -46,3 +47,4 @@ If you find this work useful, please cite:
   journal={arXiv preprint arXiv:2506.03106},
   year={2025}
 }
+
