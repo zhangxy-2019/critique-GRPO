@@ -573,7 +573,12 @@ class CRITIQUEvLLMRollout(BaseRollout):
                 # print("prefix_ratios: ", prefix_ratios)
                 # [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
                 # print("sampling params.n: ", self.sampling_params.n) # 8
-                prefix_list = [tgt_list[i][:int(len(tgt_list[i]) * prefix_ratios[i])] for i in range(len(tgt_list))]
+                prefix_list = []
+                for prefix_ratio, prefix_tgt_ids in zip(prefix_ratios, tgt_list):
+                    if prefix_ratio:
+                        prefix_list.append(prefix_tgt_ids)
+                    else:
+                        prefix_list.append([])
             else: # in eval mode, we don't have tgt_input_ids
                 tgt_list = None
 
@@ -591,12 +596,13 @@ class CRITIQUEvLLMRollout(BaseRollout):
                 prefix_mask = torch.zeros([len(resp_list), self.config.response_length], dtype=torch.bool).to(idx.device)
                 # print("prefix_mask initialization: ", prefix_mask)
                 # print("prefix_mask initialization shape: ", prefix_mask.shape) # torch.Size([256, 6144])
-                for i in range(len(resp_list)):
-                    # print("prefix list i: ", prefix_list[i])
-                    concat_resp_list.append(torch.tensor(prefix_list[i] + resp_list[i]))
-                    prefix_len = min(len(prefix_list[i]), self.config.response_length)
-                    # print("prefix_len: ", prefix_len) # 2678, 0, 0, 0, 0, 0, 0
+                for i, (prefix_tgt_ids, response_ids) in enumerate(zip(prefix_list, resp_list)):
+                    prefix_len = min(len(prefix_tgt_ids), self.config.response_length)
                     prefix_mask[i, :prefix_len] = True
+                    if prefix_tgt_ids:
+                        concat_resp_list.append(torch.tensor(prefix_tgt_ids))
+                    else:
+                        concat_resp_list.append(torch.tensor(response_ids))
                 # print("prefix_mask: ", prefix_mask) 
                 # prefix_mask:  
                 # tensor([[ True,  True,  True,  ..., False, False, False],
