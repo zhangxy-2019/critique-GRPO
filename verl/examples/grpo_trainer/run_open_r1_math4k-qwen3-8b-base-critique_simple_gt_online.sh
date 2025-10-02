@@ -14,10 +14,10 @@ wandb online
 
 export RAY_BACKEND_LOG_LEVEL=debug
 export HYDRA_FULL_ERROR=1
-export DATA_DIR=/mnt/workspace/xyzhang/evaluation/batch_eval_results/tokens8192/verl_grpo_openr1_math_4k_qwen3_8b_rollout8_0523/simple_gt_critique
+export DATA_DIR=open_math4k
 export MODEL_PATH=/mnt/workspace/huggingface_models/Qwen3-8B
 export RUN_NAME=critique_grpo_math_4k_qwen3_8b_rollout7_critique_1_simple_gt_online
-export HDFS_CHECKPOINT_PATH=/mnt/workspace/xyzhang/rl_tuned_ckpts/luffy
+export HDFS_CHECKPOINT_PATH=/mnt/workspace/xyzhang/rl_tuned_ckpts
 TRAIN_BATCH_SIZE=128
 VAL_BATCH_SIZE=512
 MAX_PROMPT_LENGTH=2048
@@ -75,7 +75,7 @@ echo -e "Training with the following parameters:\nTrain Batch Size: $TRAIN_BATCH
 
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python3 -m verl.critique_grpo.critique_main_ppo \
     algorithm.adv_estimator=grpo \
-    data.train_files=$DATA_DIR/train_add_question.parquet \
+    data.train_files=$DATA_DIR/train.parquet \
     data.val_files=$DATA_DIR/test.parquet \
     data.train_batch_size=$TRAIN_BATCH_SIZE \
     data.val_batch_size=$VAL_BATCH_SIZE \
