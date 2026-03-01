@@ -31,6 +31,8 @@ chmod +x verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_si
 bash verl/examples/grpo_trainer/run_open_r1_math4k-qwen3-8b-base-critique_simple_gt_online.sh
 ```
 
+Please email Xiaoying at zhangxycuhk@gmail.com with any questions. (Note that CUHK-related email addresses are no longer functional.)
+
 ## Ackowledgement
 Our code builds upon several excellent open-source projects: VERL (https://github.com/volcengine/verl), LUFFY (https://github.com/ElliottYan/LUFFY).
 We extend our gratitude to the team members and the broader research community for their contributions.
