@@ -44,8 +44,8 @@ If you find this work useful, please cite:
 
 ```bibtex
 @article{zhang2025critique,
-  title={Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback},
-  author={Zhang, Xiaoying and Sun, Hao and Zhang, Yipeng and Feng, Kaituo and Yang, Chao and Meng, Helen},
+  title={Critique-grpo: Advancing llm reasoning with natural language and numerical feedback},
+  author={Zhang, Xiaoying and Zhang, Yipeng and Sun, Hao and Feng, Kaituo and Lu, Chaochao and Yang, Chao and Meng, Helen},
   journal={arXiv preprint arXiv:2506.03106},
   year={2025}
 }
