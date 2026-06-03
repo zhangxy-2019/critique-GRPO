@@ -1,4 +1,4 @@
-# **Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback (ICML 2026 Spotlight)**  
+# **[ICML 2026 Spotlight] Critique-GRPO: Advancing LLM Reasoning with Natural Language and Numerical Feedback**  
 
 [![Paper](https://img.shields.io/badge/arXiv-2506.03106-b31b1b.svg)](https://arxiv.org/abs/2506.03106)
 [![Model](https://img.shields.io/badge/🤗%20Model-Critique_GRPO_Qwen3--8B-blue)](https://huggingface.co/xyingzhang/critique_grpo_math_4k_qwen3_8b_rollout7_self_critique_1_global_step_300)
